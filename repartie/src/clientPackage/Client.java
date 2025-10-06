@@ -17,17 +17,19 @@ public class Client {
 
             BufferedReader in = new BufferedReader(new InputStreamReader(is));
             PrintWriter out = new PrintWriter(os, true);
-
+            int x;
             Scanner sc = new Scanner(System.in);
-            System.out.print("Entrez un entier x : ");
-            int x = sc.nextInt();
+            do {
+            	System.out.print("Entrez un entier x : ");
+            	 x = sc.nextInt();
+            	out.println(x);
+                System.out.println("Nombre envoyé au serveur.");
 
-            out.println(x);
-            System.out.println("Nombre envoyé au serveur.");
+                String reponse = in.readLine();
+                System.out.println("Résultat reçu du serveur : " + reponse);
 
-            String reponse = in.readLine();
-            System.out.println("Résultat reçu du serveur : " + reponse);
-
+            }while(x != 0);
+            
             in.close();
             out.close();
             socket.close();
